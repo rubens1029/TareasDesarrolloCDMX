@@ -1,0 +1,13 @@
+mixin crearProyecto(proyecto = {})
+    form.agregar-proyecto(action=`/nuevo-proyecto/${proyecto.id || ''}` method="POST")
+        .campo
+            label(for="nombre") Nombre Proyecto:
+            input(value=proyecto.nombre type="text" id="nombre" name="nombre" placeholder="Nombre Proyecto")
+        .campo
+            label(for="estatus") Estatus:
+            input(value=proyecto.estatus type="text" id="estatus" name="estatus" placeholder="Estatus del Proyecto")
+        .campo
+            label(for="observaciones") Observaciones:
+            input(value=proyecto.observaciones type="text" id="observaciones" name="observaciones" placeholder="Obseraciones del Proyecto")
+        .campo.enviar
+            input(type="submit" value=`${proyecto.nombre ? 'Guardar' : 'Agregar'}` class="boton")
